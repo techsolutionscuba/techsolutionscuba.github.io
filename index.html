@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>TechSolutions-Cuba | Soluciones Informáticas</title>
+    <!-- Google Fonts & Font Awesome 6 (gratuito) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            color: #0f172a;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header / Nav */
+        header {
+            background-color: #ffffff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            flex-wrap: wrap;
+        }
+
+        .logo h1 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #1e3a8a;
+        }
+
+        .logo p {
+            font-size: 0.85rem;
+            color: #3b82f6;
+            font-weight: 500;
+            letter-spacing: -0.2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 600;
+            color: #1e293b;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #2563eb;
+        }
+
+        .menu-icon {
+            display: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: #1e3a8a;
+        }
+
+        /* Botón flotante de WhatsApp */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background-color: #25d366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            transition: transform 0.2s;
+            z-index: 99;
+            text-decoration: none;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.05);
+            background-color: #20b859;
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #3b82f6;
+            color: white;
+            padding: 0.8rem 1.8rem;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+
+        .btn:hover {
+            background-color: #2563eb;
+        }
+
+        /* Secciones */
+        section {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 2.5rem;
+            color: #0f172a;
+        }
+
+        .section-title span {
+            border-bottom: 4px solid #3b82f6;
+            padding-bottom: 6px;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 1.8rem;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-align: center;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 30px rgba(0,0,0,0.08);
+        }
+
+        .card i {
+            font-size: 2.8rem;
+            color: #3b82f6;
+            margin-bottom: 1rem;
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .card p {
+            color: #334155;
+            font-size: 0.95rem;
+        }
+
+        .complementarios-bg {
+            background-color: #eef2ff;
+        }
+
+        /* Contacto */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            background: white;
+            border-radius: 28px;
+            padding: 2rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1rem;
+        }
+
+        .contact-item i {
+            font-size: 1.8rem;
+            color: #2563eb;
+            width: 40px;
+        }
+
+        .contact-item a {
+            color: #0f172a;
+            text-decoration: none;
+            word-break: break-all;
+        }
+
+        .contact-item a:hover {
+            color: #2563eb;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0f172a;
+            color: #cbd5e1;
+            text-align: center;
+            padding: 1.5rem 0;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .menu-icon {
+                display: block;
+            }
+            .nav-links {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+                margin-top: 1rem;
+                padding-bottom: 1rem;
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .hero h2 {
+                font-size: 1.9rem;
+            }
+            .section-title {
+                font-size: 1.7rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <div class="navbar">
+            <div class="logo">
+                <h1>TechSolutions-Cuba</h1>
+                <p>Soluciones Informáticas de última generación.</p>
+            </div>
+            <div class="menu-icon" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#complementarios">Complementarios</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </div>
+    </div>
+</header>
+
+<main>
+    <!-- Hero / Inicio -->
+    <section id="inicio" class="hero">
+        <div class="container">
+            <h2>Impresión, copiado y soluciones tecnológicas</h2>
+            <p>Más de 10 servicios en un solo lugar. Calidad, rapidez y trato personalizado. <strong>Pago en efectivo</strong> sin complicaciones.</p>
+            <a href="#contacto" class="btn"><i class="fab fa-whatsapp"></i> Contáctanos ahora</a>
+        </div>
+    </section>
+
+    <!-- Servicios principales -->
+    <section id="servicios">
+        <div class="container">
+            <div class="section-title"><span>Servicios principales</span></div>
+            <div class="cards-grid">
+                <div class="card">
+                    <i class="fas fa-print"></i>
+                    <h3>Impresión de documentos</h3>
+                    <p>Blanco/negro y color, tamaños carta, oficio, A3. Papel bond, fotográfico y más. Entregas rápidas.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-copy"></i>
+                    <h3>Fotocopias</h3>
+                    <p>Copias nítidas de alta velocidad. Ideal para libros, manuales o trabajos. Precios por volumen.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-scanner"></i>
+                    <h3>Escaneo profesional</h3>
+                    <p>Digitalizamos documentos, fotos o libros. Formatos PDF, JPG. Entrega en USB o por correo.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-usb"></i>
+                    <h3>Llenado de memorias USB</h3>
+                    <p>Copiamos tus archivos, música, películas o documentos en tu memoria. Servicio express.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Servicios complementarios -->
+    <section id="complementarios" class="complementarios-bg">
+        <div class="container">
+            <div class="section-title"><span>Servicios complementarios</span></div>
+            <div class="cards-grid">
+                <div class="card">
+                    <i class="fas fa-exchange-alt"></i>
+                    <h3>Transferencias electrónicas</h3>
+                    <p>Envíos y recepciones de dinero de forma segura. Asistencia personalizada.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-file-invoice-dollar"></i>
+                    <h3>Pago de facturas</h3>
+                    <p>Electricidad, teléfono, agua y más. Pagamos tus cuentas sin salir de casa.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>Recarga de saldo móvil</h3>
+                    <p>Saldo para todas las operadoras. Recargas inmediatas a cualquier número.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-stamp"></i>
+                    <h3>Sellos de timbre</h3>
+                    <p>Timbre fiscal y legalización de documentos. Gestiones ágiles.</p>
+                </div>
+                <div class="card">
+                    <i class="fab fa-windows"></i>
+                    <h3>Instalación de SO</h3>
+                    <p>Windows, Linux. Configuración limpia y drivers actualizados.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Antivirus + actualización</h3>
+                    <p>Instalamos y activamos antivirus. Protección real contra malware.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-laptop-code"></i>
+                    <h3>Paquete básico Windows</h3>
+                    <p>Office, navegadores, lectores PDF, compresores y utilidades esenciales.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto">
+        <div class="container">
+            <div class="section-title"><span>Visítanos o escríbenos</span></div>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <strong>Ubicación</strong><br>
+                        Bloque 5 #43 Plan Novoa-Micro 8, Santiago de Cuba, Cuba.
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-whatsapp"></i>
+                    <div>
+                        <strong>WhatsApp</strong><br>
+                        <a href="https://wa.me/5358250828" target="_blank">+53 58250828</a> (solo mensajes)
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <strong>Correo electrónico</strong><br>
+                        <a href="mailto:techsolutions.cuba@gmail.com">techsolutions.cuba@gmail.com</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-money-bill-wave"></i>
+                    <div>
+                        <strong>Forma de pago</strong><br>
+                        Efectivo únicamente (en local o contra entrega)
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 2rem;">
+                <p style="color: #334155;">📅 Horario: Lunes a Sábado de 9:00 a 18:00 | Domingos con cita previa</p>
+                <p style="margin-top: 0.5rem;">✅ No mostramos precios web – consulta sin compromiso y recibe atención personalizada.</p>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <p>&copy; <span id="year"></span> TechSolutions-Cuba. Todos los derechos reservados.</p>
+        <p style="margin-top: 0.4rem; font-size: 0.8rem;">Soluciones Informáticas de última generación.</p>
+    </div>
+</footer>
+
+<!-- Botón flotante WhatsApp -->
+<a href="https://wa.me/5358250828" class="whatsapp-float" target="_blank" aria-label="WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
+<script>
+    // Menú hamburguesa
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    menuToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+    });
+
+    // Año dinámico para copyright
+    document.getElementById('year').innerText = new Date().getFullYear();
+
+    // Cerrar menú al hacer clic en un enlace (opcional)
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+        });
+    });
+</script>
+</body>
+</html>

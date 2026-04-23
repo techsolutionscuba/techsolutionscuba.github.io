@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta name="google-site-verification" content="Ay0SfbFyD4E-18RJEYs3DZ7q5Uv_jql-EFT_tBbMdcI" />
+     <meta name="google-site-verification" content="Ay0SfbFyD4E-18RJEYs3DZ7q5Uv_jql-EFT_tBbMdcI" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>TechSolutions-Cuba | Soluciones Informáticas</title>
-    <!-- Google Fonts & Font Awesome 6 (gratuito) -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <title>TechSolutions-Cuba | Soluciones Informáticas de última generación</title>
+    <meta name="description" content="Impresión, fotocopias, escaneo, recargas, software y más en Santiago de Cuba. Pago en efectivo o con QR. Calidad y rapidez.">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🖨︄1�7</text></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         * {
@@ -17,10 +18,16 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f8fafc;
-            color: #0f172a;
+            background: #f5f7fb;
+            color: #1a2c3e;
             line-height: 1.5;
             scroll-behavior: smooth;
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(8px);}
+            100% { opacity: 1; transform: translateY(0);}
         }
 
         .container {
@@ -29,34 +36,55 @@
             padding: 0 24px;
         }
 
-        /* Header / Nav */
         header {
-            background-color: #ffffff;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
             position: sticky;
             top: 0;
             z-index: 100;
+            border-bottom: 1px solid rgba(0,0,0,0.03);
+            backdrop-filter: blur(2px);
         }
 
         .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 0;
+            padding: 0.8rem 0;
             flex-wrap: wrap;
         }
 
-        .logo h1 {
-            font-size: 1.6rem;
-            font-weight: 700;
-            color: #1e3a8a;
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
         }
-
-        .logo p {
-            font-size: 0.85rem;
-            color: #3b82f6;
-            font-weight: 500;
-            letter-spacing: -0.2px;
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+        .logo-brand {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.7rem;
+            font-weight: 800;
+            background: linear-gradient(120deg, #1e3c72, #2b5876);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            letter-spacing: -0.5px;
+        }
+        .logo-slogan {
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: #4a6a85;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+        .logo-slogan span {
+            font-weight: 800;
+            color: #2c7da0;
         }
 
         .nav-links {
@@ -64,142 +92,243 @@
             gap: 2rem;
             list-style: none;
         }
-
         .nav-links a {
             text-decoration: none;
             font-weight: 600;
-            color: #1e293b;
-            transition: color 0.2s;
+            color: #2c3e50;
+            transition: 0.2s;
+            font-size: 0.95rem;
         }
-
         .nav-links a:hover {
-            color: #2563eb;
+            color: #2c7da0;
+            border-bottom: 2px solid #2c7da0;
+            padding-bottom: 4px;
         }
-
         .menu-icon {
             display: none;
-            font-size: 1.8rem;
+            font-size: 1.7rem;
             cursor: pointer;
-            color: #1e3a8a;
+            color: #1e3c72;
         }
 
-        /* Botón flotante de WhatsApp */
         .whatsapp-float {
             position: fixed;
             bottom: 24px;
             right: 24px;
-            background-color: #25d366;
-            color: white;
-            width: 60px;
-            height: 60px;
+            background: linear-gradient(145deg, #25d366, #20b85f);
+            width: 56px;
+            height: 56px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2rem;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-            transition: transform 0.2s;
+            font-size: 1.9rem;
+            box-shadow: 0 6px 14px rgba(37,211,102,0.3);
+            transition: all 0.2s;
             z-index: 99;
             text-decoration: none;
+            color: white;
         }
-
         .whatsapp-float:hover {
             transform: scale(1.05);
-            background-color: #20b859;
         }
 
-        /* Hero */
         .hero {
-            background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+            background: linear-gradient(115deg, #0b2b44 0%, #154e6e 100%);
             color: white;
             padding: 4rem 0;
             text-align: center;
+            position: relative;
         }
-
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(circle at 10% 30%, rgba(255,255,255,0.05) 2%, transparent 2.5%);
+            background-size: 28px 28px;
+            pointer-events: none;
+        }
         .hero h2 {
+            font-family: 'Outfit', sans-serif;
             font-size: 2.5rem;
             font-weight: 800;
             margin-bottom: 1rem;
         }
-
         .hero p {
             font-size: 1.2rem;
             max-width: 700px;
             margin: 0 auto 2rem;
-            opacity: 0.9;
+            opacity: 0.92;
         }
-
         .btn {
             display: inline-block;
-            background-color: #3b82f6;
-            color: white;
+            background: white;
+            color: #0b2b44;
             padding: 0.8rem 1.8rem;
             border-radius: 40px;
             text-decoration: none;
-            font-weight: 600;
-            transition: background 0.2s;
+            font-weight: 700;
+            transition: 0.2s;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
-
         .btn:hover {
-            background-color: #2563eb;
+            background: #f0f4f9;
+            transform: translateY(-2px);
         }
 
-        /* Secciones */
         section {
             padding: 4rem 0;
         }
-
         .section-title {
             font-size: 2rem;
             font-weight: 700;
             text-align: center;
             margin-bottom: 2.5rem;
-            color: #0f172a;
+            color: #1e3a5f;
         }
-
         .section-title span {
-            border-bottom: 4px solid #3b82f6;
-            padding-bottom: 6px;
+            border-bottom: 4px solid #2c7da0;
+            padding-bottom: 8px;
+            display: inline-block;
         }
 
+        /* Cards principales */
         .cards-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 2rem;
         }
-
         .card {
             background: white;
-            border-radius: 20px;
+            border-radius: 24px;
             padding: 1.8rem;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 12px 28px rgba(0,0,0,0.05);
+            transition: all 0.25s ease;
             text-align: center;
+            border: 1px solid rgba(0,0,0,0.02);
         }
-
         .card:hover {
             transform: translateY(-6px);
-            box-shadow: 0 16px 30px rgba(0,0,0,0.08);
+            box-shadow: 0 20px 32px rgba(0,0,0,0.08);
+            border-color: rgba(44,125,160,0.2);
         }
-
         .card i {
-            font-size: 2.8rem;
-            color: #3b82f6;
+            font-size: 2.6rem;
+            background: linear-gradient(135deg, #1e6f9f, #0b3b5f);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
             margin-bottom: 1rem;
+            transition: 0.2s;
         }
-
+        .card:hover i {
+            transform: scale(1.02);
+        }
         .card h3 {
             font-size: 1.5rem;
             margin-bottom: 0.75rem;
+            color: #1f3e5c;
         }
-
         .card p {
-            color: #334155;
+            color: #445f7a;
             font-size: 0.95rem;
         }
 
+        /* Carrusel */
         .complementarios-bg {
-            background-color: #eef2ff;
+            background: #eef3f8;
+        }
+        .slider-container {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 28px;
+            box-shadow: 0 12px 28px rgba(0,0,0,0.05);
+            background: transparent;
+        }
+        .slider-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .slider-card {
+            flex: 0 0 100%;
+            background: white;
+            border-radius: 28px;
+            padding: 2rem;
+            text-align: center;
+            box-sizing: border-box;
+            min-height: 320px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .slider-card i {
+            font-size: 3.5rem;
+            background: linear-gradient(135deg, #1e6f9f, #0b3b5f);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 1.2rem;
+        }
+        .slider-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.75rem;
+            color: #1f3e5c;
+        }
+        .slider-card p {
+            font-size: 1rem;
+            color: #445f7a;
+            max-width: 80%;
+            margin: 0 auto;
+        }
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.4);
+            color: white;
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
+            padding: 0.5rem 1rem;
+            border-radius: 50%;
+            transition: background 0.2s;
+            z-index: 10;
+        }
+        .slider-btn:hover {
+            background: rgba(0,0,0,0.7);
+        }
+        .btn-prev {
+            left: 10px;
+        }
+        .btn-next {
+            right: 10px;
+        }
+        .dots {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 1.5rem;
+        }
+        .dot {
+            width: 12px;
+            height: 12px;
+            background: #cbd5e0;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .dot.active {
+            background: #2c7da0;
+            transform: scale(1.2);
+        }
+        .slider-container:hover .slider-track {
+            animation-play-state: paused;
         }
 
         /* Contacto */
@@ -208,44 +337,52 @@
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
             background: white;
-            border-radius: 28px;
+            border-radius: 32px;
             padding: 2rem;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.04);
         }
-
         .contact-item {
             display: flex;
             align-items: center;
             gap: 1rem;
             font-size: 1rem;
         }
-
         .contact-item i {
             font-size: 1.8rem;
-            color: #2563eb;
+            background: linear-gradient(145deg, #1e6f9f, #0f4c6b);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
             width: 40px;
         }
-
         .contact-item a {
-            color: #0f172a;
+            color: #1e2f3f;
             text-decoration: none;
-            word-break: break-all;
         }
-
         .contact-item a:hover {
-            color: #2563eb;
+            color: #2c7da0;
         }
-
-        /* Footer */
+        .garantia {
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #1e3a5f;
+            background: #eef3f8;
+            padding: 1rem;
+            border-radius: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
         footer {
-            background-color: #0f172a;
-            color: #cbd5e1;
+            background: #0f2740;
+            color: #cbdbe6;
             text-align: center;
             padding: 1.5rem 0;
             font-size: 0.9rem;
         }
 
-        /* Responsive */
         @media (max-width: 768px) {
             .menu-icon {
                 display: block;
@@ -268,6 +405,26 @@
             .section-title {
                 font-size: 1.7rem;
             }
+            .logo-brand {
+                font-size: 1.3rem;
+            }
+            .logo-slogan {
+                font-size: 0.6rem;
+            }
+            .slider-card p {
+                max-width: 95%;
+                font-size: 0.9rem;
+            }
+            .slider-card h3 {
+                font-size: 1.4rem;
+            }
+            .slider-btn {
+                font-size: 1.2rem;
+                padding: 0.3rem 0.6rem;
+            }
+            .garantia {
+                font-size: 0.9rem;
+            }
         }
     </style>
 </head>
@@ -276,10 +433,12 @@
 <header>
     <div class="container">
         <div class="navbar">
-            <div class="logo">
-                <h1>TechSolutions-Cuba</h1>
-                <p>Soluciones Informáticas de última generación.</p>
-            </div>
+            <a href="#inicio" class="logo">
+                <div class="logo-text">
+                    <div class="logo-brand">TechSolutions</div>
+                    <div class="logo-slogan">SOLUCIONES <span>INFORMÁTICAS</span></div>
+                </div>
+            </a>
             <div class="menu-icon" id="menuToggle">
                 <i class="fas fa-bars"></i>
             </div>
@@ -294,16 +453,15 @@
 </header>
 
 <main>
-    <!-- Hero / Inicio -->
     <section id="inicio" class="hero">
         <div class="container">
             <h2>Impresión, copiado y soluciones tecnológicas</h2>
-            <p>Más de 10 servicios en un solo lugar. Calidad, rapidez y trato personalizado. <strong>Pago en efectivo</strong> sin complicaciones.</p>
+            <p>Más de 10 servicios en un solo lugar. Calidad, rapidez y trato personalizado. <strong>Pago en efectivo o por código QR</strong> según tu preferencia.</p>
             <a href="#contacto" class="btn"><i class="fab fa-whatsapp"></i> Contáctanos ahora</a>
         </div>
     </section>
 
-    <!-- Servicios principales -->
+    <!-- Servicios principales (iconos corregidos) -->
     <section id="servicios">
         <div class="container">
             <div class="section-title"><span>Servicios principales</span></div>
@@ -319,7 +477,8 @@
                     <p>Copias nítidas de alta velocidad. Ideal para libros, manuales o trabajos. Precios por volumen.</p>
                 </div>
                 <div class="card">
-                    <i class="fas fa-scanner"></i>
+                    <!-- Icono cambiado a cámara retro (representa escáner perfectamente y funciona siempre) -->
+                    <i class="fas fa-camera-retro"></i>
                     <h3>Escaneo profesional</h3>
                     <p>Digitalizamos documentos, fotos o libros. Formatos PDF, JPG. Entrega en USB o por correo.</p>
                 </div>
@@ -332,47 +491,16 @@
         </div>
     </section>
 
-    <!-- Servicios complementarios -->
+    <!-- Servicios complementarios carrusel -->
     <section id="complementarios" class="complementarios-bg">
         <div class="container">
             <div class="section-title"><span>Servicios complementarios</span></div>
-            <div class="cards-grid">
-                <div class="card">
-                    <i class="fas fa-exchange-alt"></i>
-                    <h3>Transferencias electrónicas</h3>
-                    <p>Envíos y recepciones de dinero de forma segura. Asistencia personalizada.</p>
-                </div>
-                <div class="card">
-                    <i class="fas fa-file-invoice-dollar"></i>
-                    <h3>Pago de facturas</h3>
-                    <p>Electricidad, teléfono, agua y más. Pagamos tus cuentas sin salir de casa.</p>
-                </div>
-                <div class="card">
-                    <i class="fas fa-mobile-alt"></i>
-                    <h3>Recarga de saldo móvil</h3>
-                    <p>Saldo para todas las operadoras. Recargas inmediatas a cualquier número.</p>
-                </div>
-                <div class="card">
-                    <i class="fas fa-stamp"></i>
-                    <h3>Sellos de timbre</h3>
-                    <p>Timbre fiscal y legalización de documentos. Gestiones ágiles.</p>
-                </div>
-                <div class="card">
-                    <i class="fab fa-windows"></i>
-                    <h3>Instalación de SO</h3>
-                    <p>Windows, Linux. Configuración limpia y drivers actualizados.</p>
-                </div>
-                <div class="card">
-                    <i class="fas fa-shield-alt"></i>
-                    <h3>Antivirus + actualización</h3>
-                    <p>Instalamos y activamos antivirus. Protección real contra malware.</p>
-                </div>
-                <div class="card">
-                    <i class="fas fa-laptop-code"></i>
-                    <h3>Paquete básico Windows</h3>
-                    <p>Office, navegadores, lectores PDF, compresores y utilidades esenciales.</p>
-                </div>
+            <div class="slider-container" id="sliderComplementarios">
+                <button class="slider-btn btn-prev" id="prevBtn"><i class="fas fa-chevron-left"></i></button>
+                <div class="slider-track" id="sliderTrack"></div>
+                <button class="slider-btn btn-next" id="nextBtn"><i class="fas fa-chevron-right"></i></button>
             </div>
+            <div class="dots" id="dotsContainer"></div>
         </div>
     </section>
 
@@ -383,36 +511,27 @@
             <div class="contact-grid">
                 <div class="contact-item">
                     <i class="fas fa-map-marker-alt"></i>
-                    <div>
-                        <strong>Ubicación</strong><br>
-                        Bloque 5 #43 Plan Novoa-Micro 8, Santiago de Cuba, Cuba.
-                    </div>
+                    <div><strong>Ubicación</strong><br>Bloque 5 #43 Plan Novoa-Micro 8, Santiago de Cuba, Cuba.</div>
                 </div>
                 <div class="contact-item">
                     <i class="fab fa-whatsapp"></i>
-                    <div>
-                        <strong>WhatsApp</strong><br>
-                        <a href="https://wa.me/5358250828" target="_blank">+53 58250828</a> (solo mensajes)
-                    </div>
+                    <div><strong>WhatsApp</strong><br><a href="https://wa.me/5358250828" target="_blank">+53 58250828</a></div>
                 </div>
                 <div class="contact-item">
                     <i class="fas fa-envelope"></i>
-                    <div>
-                        <strong>Correo electrónico</strong><br>
-                        <a href="mailto:techsolutions.cuba@gmail.com">techsolutions.cuba@gmail.com</a>
-                    </div>
+                    <div><strong>Correo electrónico</strong><br><a href="mailto:techsolutions.cuba@gmail.com">techsolutions.cuba@gmail.com</a></div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-qrcode"></i>
+                    <div><strong>Pago en línea (QR)</strong><br>Aceptamos pago mediante código QR. Consulta y te generamos el QR.</div>
                 </div>
                 <div class="contact-item">
                     <i class="fas fa-money-bill-wave"></i>
-                    <div>
-                        <strong>Forma de pago</strong><br>
-                        Efectivo únicamente (en local o contra entrega)
-                    </div>
+                    <div><strong>Pago en efectivo</strong><br>También puedes pagar al recoger tu pedido o en nuestra oficina.</div>
                 </div>
             </div>
-            <div style="text-align: center; margin-top: 2rem;">
-                <p style="color: #334155;">📅 Horario: Lunes a Sábado de 9:00 a 18:00 | Domingos con cita previa</p>
-                <p style="margin-top: 0.5rem;">✅ No mostramos precios web – consulta sin compromiso y recibe atención personalizada.</p>
+            <div class="garantia">
+                Estamos a la orden en todo momento, la calidad y rapidez son nuestra mejor garantía.
             </div>
         </div>
     </section>
@@ -425,28 +544,96 @@
     </div>
 </footer>
 
-<!-- Botón flotante WhatsApp -->
 <a href="https://wa.me/5358250828" class="whatsapp-float" target="_blank" aria-label="WhatsApp">
     <i class="fab fa-whatsapp"></i>
 </a>
 
 <script>
-    // Menú hamburguesa
+    const serviciosComplementarios = [
+        { icono: "fas fa-exchange-alt", titulo: "Transferencias electrónicas", descripcion: "Envíos y recepciones de dinero de forma segura. Asistencia personalizada." },
+        { icono: "fas fa-file-invoice-dollar", titulo: "Pago de facturas", descripcion: "Electricidad, teléfono, agua y más. Pagamos tus cuentas sin salir de casa." },
+        { icono: "fas fa-mobile-alt", titulo: "Recarga de saldo móvil", descripcion: "Saldo para todas las operadoras. Recargas inmediatas a cualquier número." },
+        { icono: "fas fa-stamp", titulo: "Sellos de timbre", descripcion: "Timbre fiscal y legalización de documentos. Gestiones ágiles." },
+        { icono: "fab fa-windows", titulo: "Instalación de SO", descripcion: "Windows, Linux. Configuración limpia y drivers actualizados." },
+        { icono: "fas fa-shield-alt", titulo: "Antivirus + actualización", descripcion: "Instalamos y activamos antivirus. Protección real contra malware." },
+        { icono: "fas fa-laptop-code", titulo: "Paquete básico Windows", descripcion: "Office, navegadores, lectores PDF, compresores y utilidades esenciales." }
+    ];
+
+    const track = document.getElementById('sliderTrack');
+    const dotsContainer = document.getElementById('dotsContainer');
+    let currentIndex = 0;
+    let autoInterval;
+    const intervalTime = 5000;
+
+    function buildSlider() {
+        track.innerHTML = '';
+        serviciosComplementarios.forEach(serv => {
+            const slide = document.createElement('div');
+            slide.classList.add('slider-card');
+            slide.innerHTML = `<i class="${serv.icono}"></i><h3>${serv.titulo}</h3><p>${serv.descripcion}</p>`;
+            track.appendChild(slide);
+        });
+        const slideCount = serviciosComplementarios.length;
+        track.style.width = `${slideCount * 100}%`;
+        document.querySelectorAll('.slider-card').forEach(card => {
+            card.style.flex = `0 0 ${100 / slideCount}%`;
+        });
+    }
+
+    function updateSlider(index) {
+        if (index < 0) index = 0;
+        if (index >= serviciosComplementarios.length) index = serviciosComplementarios.length - 1;
+        currentIndex = index;
+        const percentage = -(currentIndex * (100 / serviciosComplementarios.length));
+        track.style.transform = `translateX(${percentage}%)`;
+        document.querySelectorAll('.dot').forEach((dot, i) => {
+            dot.classList.toggle('active', i === currentIndex);
+        });
+    }
+
+    function nextSlide() { updateSlider((currentIndex + 1) % serviciosComplementarios.length); }
+    function prevSlide() { updateSlider((currentIndex - 1 + serviciosComplementarios.length) % serviciosComplementarios.length); }
+
+    function startAutoPlay() {
+        if (autoInterval) clearInterval(autoInterval);
+        autoInterval = setInterval(nextSlide, intervalTime);
+    }
+    function stopAutoPlay() { if (autoInterval) clearInterval(autoInterval); }
+
+    function createDots() {
+        dotsContainer.innerHTML = '';
+        serviciosComplementarios.forEach((_, idx) => {
+            const dot = document.createElement('div');
+            dot.classList.add('dot');
+            if (idx === currentIndex) dot.classList.add('active');
+            dot.addEventListener('click', () => {
+                stopAutoPlay();
+                updateSlider(idx);
+                startAutoPlay();
+            });
+            dotsContainer.appendChild(dot);
+        });
+    }
+
+    function init() {
+        buildSlider();
+        createDots();
+        updateSlider(0);
+        startAutoPlay();
+        const sliderContainer = document.getElementById('sliderComplementarios');
+        sliderContainer.addEventListener('mouseenter', stopAutoPlay);
+        sliderContainer.addEventListener('mouseleave', startAutoPlay);
+        document.getElementById('prevBtn').addEventListener('click', () => { stopAutoPlay(); prevSlide(); startAutoPlay(); });
+        document.getElementById('nextBtn').addEventListener('click', () => { stopAutoPlay(); nextSlide(); startAutoPlay(); });
+    }
+    init();
+
+    // Menú móvil
     const menuToggle = document.getElementById('menuToggle');
     const navLinks = document.getElementById('navLinks');
-    menuToggle.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-    });
-
-    // Año dinámico para copyright
-    document.getElementById('year').innerText = new Date().getFullYear();
-
-    // Cerrar menú al hacer clic en un enlace (opcional)
-    document.querySelectorAll('.nav-links a').forEach(link => {
-        link.addEventListener('click', () => {
-            navLinks.classList.remove('active');
-        });
-    });
+    menuToggle.addEventListener('click', () => navLinks.classList.toggle('active'));
+    document.querySelectorAll('.nav-links a').forEach(link => link.addEventListener('click', () => navLinks.classList.remove('active')));
+    document.getElementById('year').innerHTML = new Date().getFullYear();
 </script>
 </body>
 </html>

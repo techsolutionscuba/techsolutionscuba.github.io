@@ -280,12 +280,12 @@
             width: 100%;
             height: 180px;
             object-fit: cover;
-            display: block; /* Importante para el fallback */
+            display: block;
         }
         
         /* LÓGICA DE FALLBACK DE IMÁGENES */
         .card-fallback {
-            display: none; /* Oculto por defecto */
+            display: none;
             width: 100%;
             height: 180px;
             background: linear-gradient(135deg, #e0f2fe, #f0f9ff);
@@ -294,9 +294,7 @@
             font-size: 3rem;
             color: var(--secondary);
         }
-        /* Si la imagen tiene la clase 'error', se oculta */
         .card img.error { display: none; }
-        /* Si la imagen tiene error, el hermano siguiente (fallback) se muestra */
         .card img.error + .card-fallback { display: flex; }
 
         .card-content {
@@ -683,11 +681,8 @@
                 <div class="cards-grid">
                     <!-- Impresión -->
                     <div class="card reveal">
-                        <!-- Intenta cargar img/impresion.jpeg -->
                         <img class="card-img" src="img/impresion.jpeg" alt="Impresión de documentos" onerror="this.classList.add('error')">
-                        <!-- Fallback si no encuentra la imagen -->
                         <div class="card-fallback"><i class="fas fa-print"></i></div>
-                        
                         <div class="card-content">
                             <h3>Impresión Digital</h3>
                             <p>Alta definición en blanco/negro y color. Variedad de tamaños y papeles (bond, fotográfico, cartulina).</p>
@@ -752,9 +747,9 @@
                     <!-- Columna Izquierda: Mapa e Info -->
                     <div class="map-wrapper">
                         <div class="map-container">
-                            <!-- Mapa embebido apuntando a Santiago de Cuba (aproximado a la dirección) -->
+                            <!-- Mapa actualizado al código Plus exacto 25V4+Q6C -->
                             <iframe 
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2955.1!2d-75.8!3d20.02!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjDCsDAxJzEyLjAiTiA3NcKwNDgnMDAuMCJX!5e0!3m2!1ses!2scu!4v1600000000000!5m2!1ses!2scu" 
+                                src="https://maps.google.com/maps?q=25V4+Q6C+Santiago+de+Cuba&t=&z=17&ie=UTF8&iwloc=&output=embed" 
                                 allowfullscreen="" 
                                 loading="lazy" 
                                 referrerpolicy="no-referrer-when-downgrade"
@@ -783,7 +778,8 @@
                                     <p>techsolutions.cuba@gmail.com</p>
                                 </div>
                             </div>
-                            <a href="https://www.google.com/maps/search/?api=1&query=Bloque+5+%2343+Plan+Novoa-Micro+8+Santiago+de+Cuba" target="_blank" class="btn-map">
+                            <!-- Botón actualizado para llevar al código exacto -->
+                            <a href="https://maps.google.com/maps?q=25V4+Q6C+Santiago+de+Cuba" target="_blank" class="btn-map">
                                 <i class="fas fa-location-arrow"></i> Cómo llegar
                             </a>
                         </div>
@@ -821,11 +817,8 @@
     <footer>
         <div class="container">
             <div class="social-links">
-                <!-- Facebook actualizado -->
                 <a href="https://facebook.com/techsolutionscuba" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                <!-- Correo añadido -->
                 <a href="mailto:techsolutions.cuba@gmail.com"><i class="fas fa-envelope"></i></a>
-                <!-- WhatsApp mantenido -->
                 <a href="https://wa.me/5358250828" target="_blank"><i class="fab fa-whatsapp"></i></a>
             </div>
             <p>&copy; <span id="year"></span> TechSolutions-Cuba. Todos los derechos reservados.</p>

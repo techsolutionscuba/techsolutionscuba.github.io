@@ -48,6 +48,7 @@
             color: var(--text-dark);
             line-height: 1.6;
             overflow-x: hidden;
+            padding-top: 80px;
         }
 
         /* Utilidades */
@@ -79,11 +80,6 @@
             border-bottom: 3px solid var(--accent);
         }
 
-        /* Compensación para contenido fijo */
-        body {
-            padding-top: 80px;
-        }
-
         .navbar {
             display: flex;
             justify-content: space-between;
@@ -91,16 +87,26 @@
             padding: 0.8rem 0;
         }
 
+        /* ============================================ */
+        /* LOGO CON DISEÑO ORIGINAL (CUADRADO CON BORDE AZUL) */
+        /* ============================================ */
         .logo {
             display: flex;
             align-items: center;
             gap: 12px;
             text-decoration: none;
         }
-        .logo-img {
-            height: 45px;
-            width: auto;
-            display: block;
+        .logo-icon {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            color: white;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
         }
         .logo-text {
             display: flex;
@@ -111,7 +117,9 @@
             font-family: 'Outfit', sans-serif;
             font-size: 1.5rem;
             font-weight: 800;
-            color: var(--primary);
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
         .logo-slogan {
             font-size: 0.65rem;
@@ -752,7 +760,7 @@
     <div class="container">
         <div class="navbar">
             <a href="#inicio" class="logo">
-                <img src="img/logo.png" alt="TechSolutions" class="logo-img" onerror="this.src='data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Crect%20width%3D%22100%22%20height%3D%22100%22%20fill%3D%22%23003366%22%2F%3E%3Ctext%20x%3D%2250%22%20y%3D%2268%22%20font-size%3D%2250%22%20text-anchor%3D%22middle%22%20fill%3D%22white%22%3ETS%3C%2Ftext%3E%3C%2Fsvg%3E'">
+                <div class="logo-icon"><i class="fas fa-microchip"></i></div>
                 <div class="logo-text">
                     <div class="logo-brand">TechSolutions</div>
                     <div class="logo-slogan">SOLUCIONES INFORMÁTICAS</div>

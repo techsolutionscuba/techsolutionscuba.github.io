@@ -30,7 +30,7 @@
             --shadow-md: 0 4px 16px rgba(0,0,0,0.06);
             --shadow-lg: 0 8px 24px rgba(0,0,0,0.08);
             --radius: 12px;
-            --header-height: 80px; /* Ajuste para el desplazamiento */
+            --header-height: 80px;
         }
 
         * {
@@ -41,11 +41,16 @@
 
         html {
             scroll-behavior: smooth;
-            scroll-padding-top: var(--header-height); /* Solución global para el scroll */
+            scroll-padding-top: var(--header-height);
         }
 
-        /* Ajuste individual por si acaso */
+        /* Aseguramos que todas las secciones tengan el margen de scroll correcto */
         section, .hero {
+            scroll-margin-top: var(--header-height);
+        }
+
+        /* Clase adicional para cualquier elemento con id que reciba scroll */
+        [id] {
             scroll-margin-top: var(--header-height);
         }
 
@@ -141,7 +146,7 @@
         }
         .logo-brand {
             font-family: 'Outfit', sans-serif;
-            font-size: 1.8rem; /* Tamaño aumentado */
+            font-size: 1.8rem;
             font-weight: 800;
             background: linear-gradient(135deg, var(--primary), var(--accent));
             -webkit-background-clip: text;
@@ -786,7 +791,7 @@
                 padding: 4px 12px 4px 8px;
             }
             .logo-brand {
-                font-size: 1.4rem; /* Aumentado también en móvil */
+                font-size: 1.4rem;
             }
             .logo-img-wrapper {
                 width: 38px;
@@ -1197,6 +1202,15 @@
         menuToggle.querySelector('i').classList.remove('fa-times');
     }));
 
+    // Función para actualizar dinámicamente el scroll-padding-top según la altura real del header
+    function updateScrollPadding() {
+        const header = document.querySelector('header');
+        if (header) {
+            const headerHeight = header.offsetHeight;
+            document.documentElement.style.setProperty('--header-height', `${headerHeight}px`);
+        }
+    }
+
     document.addEventListener('DOMContentLoaded', () => {
         initSlider();
         initTestimonios();
@@ -1204,15 +1218,16 @@
         initScrollAnimations();
         document.getElementById('year').textContent = new Date().getFullYear();
         
-        // Ajuste dinámico del header height para scroll-padding (opcional, buena práctica)
-        const updateHeaderHeight = () => {
-            const header = document.querySelector('header');
-            if (header) {
-                document.documentElement.style.setProperty('--header-height', `${header.offsetHeight}px`);
-            }
-        };
-        updateHeaderHeight();
-        window.addEventListener('resize', updateHeaderHeight);
+        // Configuración inicial del scroll padding
+        updateScrollPadding();
+        
+        // Actualizar cuando cambie el tamaño de la ventana (por si el header cambia de altura)
+        window.addEventListener('resize', updateScrollPadding);
+        
+        // También actualizar después de posibles cambios en el DOM que afecten la altura del header
+        // (como cuando se abre el menú móvil, que puede cambiar la altura del header)
+        const observer = new ResizeObserver(updateScrollPadding);
+        observer.observe(document.querySelector('header'));
     });
 </script>
 </body>

@@ -30,6 +30,7 @@
             --shadow-md: 0 4px 16px rgba(0,0,0,0.06);
             --shadow-lg: 0 8px 24px rgba(0,0,0,0.08);
             --radius: 12px;
+            --header-height: 80px; /* Ajuste para el desplazamiento */
         }
 
         * {
@@ -40,6 +41,12 @@
 
         html {
             scroll-behavior: smooth;
+            scroll-padding-top: var(--header-height); /* Solución global para el scroll */
+        }
+
+        /* Ajuste individual por si acaso */
+        section, .hero {
+            scroll-margin-top: var(--header-height);
         }
 
         body {
@@ -48,7 +55,6 @@
             color: var(--text-dark);
             line-height: 1.6;
             overflow-x: hidden;
-            padding-top: 80px;
         }
 
         /* Utilidades */
@@ -68,14 +74,12 @@
             padding: 0 24px;
         }
 
-        /* Header institucional */
+        /* Header institucional tipo ETECSA */
         header {
             background: var(--white);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            position: fixed;
+            box-shadow: var(--shadow-md);
+            position: sticky;
             top: 0;
-            left: 0;
-            width: 100%;
             z-index: 1000;
             border-bottom: 3px solid var(--accent);
         }
@@ -87,31 +91,49 @@
             padding: 0.8rem 0;
         }
 
-        /* ============================================ */
-        /* LOGO CON DISEÑO ORIGINAL (con sombra y borde azul) */
-        /* ============================================ */
+        /* === LOGO CON EFECTO PROFESIONAL + PUBLICITARIO === */
         .logo {
             display: flex;
             align-items: center;
             gap: 12px;
             text-decoration: none;
+            background: linear-gradient(145deg, #ffffff, #f8fafc);
+            padding: 6px 18px 6px 12px;
+            border-radius: 60px;
+            box-shadow: 0 4px 12px rgba(0,51,102,0.12);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0,102,204,0.15);
         }
-        .logo-icon {
-            background: linear-gradient(135deg, var(--primary), var(--accent));
+        .logo:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,51,102,0.2);
+            border-color: var(--accent);
+        }
+        /* Contenedor de la imagen del logo */
+        .logo-img-wrapper {
             width: 48px;
             height: 48px;
-            border-radius: 12px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 16px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.6rem;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+        .logo-img {
+            max-width: 42px;
+            max-height: 42px;
+            width: auto;
+            height: auto;
+            display: block;
+            border-radius: 12px;
+        }
+        /* Fallback icono si no hay imagen */
+        .logo-icon {
+            font-size: 1.8rem;
             color: white;
-            box-shadow: 0 4px 10px rgba(0,51,102,0.25);
-            transition: transform 0.2s;
         }
-        .logo:hover .logo-icon {
-            transform: scale(1.02);
-        }
+        /* Texto del logo */
         .logo-text {
             display: flex;
             flex-direction: column;
@@ -119,20 +141,26 @@
         }
         .logo-brand {
             font-family: 'Outfit', sans-serif;
-            font-size: 1.5rem;
+            font-size: 1.8rem; /* Tamaño aumentado */
             font-weight: 800;
             background: linear-gradient(135deg, var(--primary), var(--accent));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-shadow: 0 1px 2px rgba(0,0,0,0.05);
             letter-spacing: -0.3px;
         }
         .logo-slogan {
-            font-size: 0.65rem;
+            font-size: 0.6rem;
             font-weight: 600;
             color: var(--text-light);
-            letter-spacing: 0.5px;
+            letter-spacing: 0.8px;
             text-transform: uppercase;
+        }
+        /* Ocultar/mostrar fallback */
+        .logo-img.error {
+            display: none;
+        }
+        .logo-img.error + .logo-icon {
+            display: block;
         }
 
         .nav-links {
@@ -192,7 +220,7 @@
             transform: scale(1.08) rotate(5deg);
         }
 
-        /* Hero Section */
+        /* Hero Section institucional */
         .hero {
             background: linear-gradient(135deg, var(--primary), var(--primary-dark));
             color: white;
@@ -279,7 +307,7 @@
             margin: 0 auto;
         }
 
-        /* Tarjetas de servicios */
+        /* Tarjetas de servicios estilo ETECSA */
         .cards-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -332,7 +360,7 @@
             line-height: 1.5;
         }
 
-        /* Experiencia */
+        /* Sección de experiencia */
         .experiencia {
             background: linear-gradient(135deg, #f8fafc, #eef2f7);
             border-radius: var(--radius);
@@ -653,7 +681,7 @@
             transform: translateY(-2px);
         }
 
-        /* Footer */
+        /* Footer institucional tipo ETECSA */
         footer {
             background: var(--primary-dark);
             color: #b8c7d9;
@@ -754,8 +782,19 @@
             .slider-card h3 { font-size: 1.3rem; }
             .testimonial-text { max-width: 95%; font-size: 0.9rem; }
             section { padding: 2.5rem 0; }
-            body {
-                padding-top: 70px;
+            .logo {
+                padding: 4px 12px 4px 8px;
+            }
+            .logo-brand {
+                font-size: 1.4rem; /* Aumentado también en móvil */
+            }
+            .logo-img-wrapper {
+                width: 38px;
+                height: 38px;
+            }
+            .logo-img {
+                max-width: 32px;
+                max-height: 32px;
             }
         }
     </style>
@@ -766,7 +805,10 @@
     <div class="container">
         <div class="navbar">
             <a href="#inicio" class="logo">
-                <div class="logo-icon"><i class="fas fa-microchip"></i></div>
+                <div class="logo-img-wrapper">
+                    <img class="logo-img" src="img/logo.png" alt="TechSolutions Logo" onerror="this.classList.add('error'); this.nextElementSibling.style.display='block'">
+                    <i class="fas fa-microchip logo-icon" style="display: none;"></i>
+                </div>
                 <div class="logo-text">
                     <div class="logo-brand">TechSolutions</div>
                     <div class="logo-slogan">SOLUCIONES INFORMÁTICAS</div>
@@ -947,9 +989,9 @@
                 <h4>TechSolutions</h4>
                 <p>Más de 15 años brindando soluciones informáticas de calidad en Santiago de Cuba.</p>
                 <div class="social-links">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://facebook.com/techsolutionscuba" target="_blank"><i class="fab fa-facebook-f"></i></a>
                     <a href="mailto:techsolutions.cuba@gmail.com"><i class="fas fa-envelope"></i></a>
-                    <a href="https://wa.me/5358250828"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://wa.me/5358250828" target="_blank"><i class="fab fa-whatsapp"></i></a>
                 </div>
             </div>
             <div class="footer-col">
@@ -984,38 +1026,6 @@
 </div>
 
 <script>
-    // ============================================================
-    // NAVEGACIÓN SUAVE CON COMPENSACIÓN EXACTA DEL HEADER
-    // ============================================================
-    document.querySelectorAll('.nav-links a[href^="#"], .btn[href^="#"], .btn-outline[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                const headerHeight = document.querySelector('header').offsetHeight;
-                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
-                const offsetPosition = targetPosition - headerHeight;
-                window.scrollTo({
-                    top: offsetPosition,
-                    behavior: 'smooth'
-                });
-                // Cerrar menú móvil si está abierto
-                const navLinks = document.getElementById('navLinks');
-                const menuToggle = document.getElementById('menuToggle');
-                if (navLinks && navLinks.classList.contains('active')) {
-                    navLinks.classList.remove('active');
-                    const icon = menuToggle.querySelector('i');
-                    if (icon) {
-                        icon.classList.remove('fa-times');
-                        icon.classList.add('fa-bars');
-                    }
-                }
-            }
-        });
-    });
-
     // Servicios complementarios
     const serviciosComplementarios = [
         { icono: "fas fa-exchange-alt", titulo: "Transferencias", descripcion: "Envíos y recepciones de dinero seguros y rápidos." },
@@ -1181,6 +1191,11 @@
         icon.classList.toggle('fa-bars');
         icon.classList.toggle('fa-times');
     });
+    document.querySelectorAll('.nav-links a').forEach(link => link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        menuToggle.querySelector('i').classList.add('fa-bars');
+        menuToggle.querySelector('i').classList.remove('fa-times');
+    }));
 
     document.addEventListener('DOMContentLoaded', () => {
         initSlider();
@@ -1188,6 +1203,16 @@
         initForm();
         initScrollAnimations();
         document.getElementById('year').textContent = new Date().getFullYear();
+        
+        // Ajuste dinámico del header height para scroll-padding (opcional, buena práctica)
+        const updateHeaderHeight = () => {
+            const header = document.querySelector('header');
+            if (header) {
+                document.documentElement.style.setProperty('--header-height', `${header.offsetHeight}px`);
+            }
+        };
+        updateHeaderHeight();
+        window.addEventListener('resize', updateHeaderHeight);
     });
 </script>
 </body>
